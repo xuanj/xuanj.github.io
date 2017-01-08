@@ -1,0 +1,709 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,IDEA," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="IDEA 在调试过程中的一些小技巧，与Eclipse的调试做对比。不为分优劣长短，只是想看看，都有什么特点。 
+
+快捷键默认的常用快捷键：⌘5 debug 窗口">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IntelliJ IDEA调试技巧">
+<meta property="og:url" content="http://xuanjian.site/java/IDEA/IntelliJ IDEA调试技巧/index.html">
+<meta property="og:site_name" content="--禤剑--博客-->">
+<meta property="og:description" content="IDEA 在调试过程中的一些小技巧，与Eclipse的调试做对比。不为分优劣长短，只是想看看，都有什么特点。 
+
+快捷键默认的常用快捷键：⌘5 debug 窗口">
+<meta property="og:image" content="http://xuanjian.site/images/eclipse-debug1.png">
+<meta property="og:image" content="http://xuanjian.site/images/eclipse-debug2.png">
+<meta property="og:image" content="http://xuanjian.site/images/eclipse-debug3.png">
+<meta property="og:image" content="http://xuanjian.site/images/eclipse-debug4.png">
+<meta property="og:image" content="http://xuanjian.site/images/eclipse-debug5.png">
+<meta property="og:image" content="http://xuanjian.site/images/eclipse-debug6.png">
+<meta property="og:image" content="http://xuanjian.site/images/eclipse-debug7.png">
+<meta property="og:image" content="http://xuanjian.site/images/eclipse-debug9.png">
+<meta property="og:image" content="http://xuanjian.site/images/eclipse-debug8.png">
+<meta property="og:updated_time" content="2017-01-08T07:05:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IntelliJ IDEA调试技巧">
+<meta name="twitter:description" content="IDEA 在调试过程中的一些小技巧，与Eclipse的调试做对比。不为分优劣长短，只是想看看，都有什么特点。 
+
+快捷键默认的常用快捷键：⌘5 debug 窗口">
+<meta name="twitter:image" content="http://xuanjian.site/images/eclipse-debug1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6291478209431078000,
+      author: '笔主'
+    }
+  };
+</script>
+
+  <title> IntelliJ IDEA调试技巧 | --禤剑--博客--> </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">--禤剑--博客--></span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">代码的横坚撇点捺</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                IntelliJ IDEA调试技巧
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-08T01:22:00+08:00" content="2017-01-08">
+              2017-01-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/IDEA/" itemprop="url" rel="index">
+                    <span itemprop="name">IDEA</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/java/IDEA/IntelliJ IDEA调试技巧/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="java/IDEA/IntelliJ IDEA调试技巧/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>IDEA 在调试过程中的一些小技巧，与Eclipse的调试做对比。不为分优劣长短，只是想看看，都有什么特点。 </p>
+</blockquote>
+<h1 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h1><p>默认的常用快捷键：<br>⌘5 debug 窗口<br><a id="more"></a></p>
+<h1 id="条件断点"><a href="#条件断点" class="headerlink" title="条件断点"></a>条件断点</h1><p>可以设置条件为true时才进入断点，也可以设置当值改变时进入断点。<br><img src="/images/eclipse-debug1.png" class="class" width="650" title="条件断点"></p>
+<h1 id="异常断点"><a href="#异常断点" class="headerlink" title="异常断点"></a>异常断点</h1><p>如果想在某种异常出现时，断点进入异常的代码行。<br><img src="/images/eclipse-debug2.png" class="class" width="650" title="异常断点"></p>
+<h1 id="Toggle-Watchpoint"><a href="#Toggle-Watchpoint" class="headerlink" title="Toggle Watchpoint"></a>Toggle Watchpoint</h1><p>⇧⌘B 将类变量上添加观察点，当变量被访问或修改时进入。<br><img src="/images/eclipse-debug3.png" class="class" width="650" title="Toggle Watchpoint"></p>
+<h1 id="修改变量值"><a href="#修改变量值" class="headerlink" title="修改变量值"></a>修改变量值</h1><p>当调试时，希望将某变量在某值时的异常，可以直接在Variables里进行修改。修改了值之后记得⌘S保存值。不过，在修改数组时出现了错误。<br><img src="/images/eclipse-debug4.png" class="class" width="650" title="修改变量值"></p>
+<h1 id="Drop-to-Frame"><a href="#Drop-to-Frame" class="headerlink" title="Drop to Frame"></a>Drop to Frame</h1><p>跳转堆栈开始处。不服，不用再来一次。已经设置为前缀快捷加D。光标在哪里就从哪里重新开始。<br><img src="/images/eclipse-debug5.png" class="class" width="650" title="Drop To Frame"></p>
+<h1 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h1><p>不是所有的代码都希望F5进入，比如sun或jdk的一些包，是的，我们不是来调试别人的代码的。当然，如果在研究一些源码，就不要这些过滤了。有时候，想将已经稳定的项目代码过滤下，也是好的。要结合快捷键⇧F5用。<br><img src="/images/eclipse-debug6.png" class="class" width="650" title="过滤F5"></p>
+<h1 id="Expressions视图"><a href="#Expressions视图" class="headerlink" title="Expressions视图"></a>Expressions视图</h1><p>有些值，我们总想一直关注。<br><img src="/images/eclipse-debug7.png" class="class" width="650" title="Expressions"></p>
+<h1 id="Display"><a href="#Display" class="headerlink" title="Display"></a>Display</h1><p>这里可以直接写代码，然后选择代码运行。抛个异常什么的都可以。<br><img src="/images/eclipse-debug9.png" class="class" width="650" title="Display"></p>
+<h1 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h1><p>面对一些set和map，必须显示逻辑结构，不然，很难看。<br><img src="/images/eclipse-debug8.png" class="class" width="650" title="逻辑结构"></p>
+<h1 id="Step-Into-Selection"><a href="#Step-Into-Selection" class="headerlink" title="Step Into Selection"></a>Step Into Selection</h1><p>好货沉底，这招希望好用。<br>⌥⌘加上单击方法名就可以跳到方法上。非常好用，指哪打哪。如果一个函数太多参数，不用老是进入一些不想进入的方法里，避免过多F5、F7。结合⌘R会更好用。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/IDEA/" rel="tag">#IDEA</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/java/Eclipse/Eclipse 快捷键个人秘籍/" rel="next" title="Eclipse 快捷键个人秘籍">
+                <i class="fa fa-chevron-left"></i> Eclipse 快捷键个人秘籍
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="java/IDEA/IntelliJ IDEA调试技巧/"
+           data-title="IntelliJ IDEA调试技巧" data-url="http://xuanjian.site/java/IDEA/IntelliJ IDEA调试技巧/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/tb1.png"
+               alt="xuanjian" />
+          <p class="site-author-name" itemprop="name">xuanjian</p>
+          <p class="site-description motion-element" itemprop="description">为什么学书法要临摹古代书法作品，因为Spring框架不是每个程序员都要写得出来，但，经典就要临摹学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xuanj" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://cn.linkedin.com/in/剑-禤-b85823120" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/xuanjian_" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/jian.xuan.7547" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#快捷键"><span class="nav-number">1.</span> <span class="nav-text">快捷键</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#条件断点"><span class="nav-number">2.</span> <span class="nav-text">条件断点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常断点"><span class="nav-number">3.</span> <span class="nav-text">异常断点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Toggle-Watchpoint"><span class="nav-number">4.</span> <span class="nav-text">Toggle Watchpoint</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改变量值"><span class="nav-number">5.</span> <span class="nav-text">修改变量值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Drop-to-Frame"><span class="nav-number">6.</span> <span class="nav-text">Drop to Frame</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#过滤"><span class="nav-number">7.</span> <span class="nav-text">过滤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Expressions视图"><span class="nav-number">8.</span> <span class="nav-text">Expressions视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Display"><span class="nav-number">9.</span> <span class="nav-text">Display</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#逻辑结构"><span class="nav-number">10.</span> <span class="nav-text">逻辑结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Step-Into-Selection"><span class="nav-number">11.</span> <span class="nav-text">Step Into Selection</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xuanjian</span>
+</div>
+
+<div class="powered-by">
+  Power By  <a class="theme-link" href="http://hexo.io">Hexo</a> 
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xuanjian"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

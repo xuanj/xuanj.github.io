@@ -1,0 +1,692 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="linux,kali,ide," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="对于想学习linux，python，shell，vi等的同鞋，请收下。对于想用kali学习安全与渗透方法的同鞋…… 确实可以省去虚拟机的麻烦事。此文安装的发行版本是Kali sana,linuxdeploy支持很多linux的发行版本。直接用手机当主机也不是不可能的。现在手机，动不动就是8核的。
+
+为什么想用在手机上运行linux。0、手机成为极客工具。1、手机方便，linuxer必备。2、码农">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何用安卓运行Kali">
+<meta property="og:url" content="http://xuanjian.site/linux/如何用安卓运行Kali/index.html">
+<meta property="og:site_name" content="--禤剑--博客-->">
+<meta property="og:description" content="对于想学习linux，python，shell，vi等的同鞋，请收下。对于想用kali学习安全与渗透方法的同鞋…… 确实可以省去虚拟机的麻烦事。此文安装的发行版本是Kali sana,linuxdeploy支持很多linux的发行版本。直接用手机当主机也不是不可能的。现在手机，动不动就是8核的。
+
+为什么想用在手机上运行linux。0、手机成为极客工具。1、手机方便，linuxer必备。2、码农">
+<meta property="og:image" content="http://xuanjian.site/images/如何用安卓手机做开发_1.jpg">
+<meta property="og:image" content="http://xuanjian.site/images/如何用安卓手机做开发_2.jpg">
+<meta property="og:image" content="http://xuanjian.site/images/如何用安卓手机做开发_3.jpg">
+<meta property="og:updated_time" content="2016-06-09T06:24:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何用安卓运行Kali">
+<meta name="twitter:description" content="对于想学习linux，python，shell，vi等的同鞋，请收下。对于想用kali学习安全与渗透方法的同鞋…… 确实可以省去虚拟机的麻烦事。此文安装的发行版本是Kali sana,linuxdeploy支持很多linux的发行版本。直接用手机当主机也不是不可能的。现在手机，动不动就是8核的。
+
+为什么想用在手机上运行linux。0、手机成为极客工具。1、手机方便，linuxer必备。2、码农">
+<meta name="twitter:image" content="http://xuanjian.site/images/如何用安卓手机做开发_1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6291478209431078000,
+      author: '笔主'
+    }
+  };
+</script>
+
+  <title> 如何用安卓运行Kali | --禤剑--博客--> </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">--禤剑--博客--></span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">代码的横坚撇点捺</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                如何用安卓运行Kali
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-03T12:22:00+08:00" content="2016-06-03">
+              2016-06-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/linux/如何用安卓运行Kali/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux/如何用安卓运行Kali/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>对于想学习linux，python，shell，vi等的同鞋，请收下。<br>对于想用kali学习安全与渗透方法的同鞋…… 确实可以省去虚拟机的麻烦事。<br>此文安装的发行版本是Kali sana,linuxdeploy支持很多linux的发行版本。<br>直接用手机当主机也不是不可能的。现在手机，动不动就是8核的。</p>
+</blockquote>
+<h1 id="为什么想用在手机上运行linux。"><a href="#为什么想用在手机上运行linux。" class="headerlink" title="为什么想用在手机上运行linux。"></a>为什么想用在手机上运行linux。</h1><p>0、手机成为极客工具。<br>1、手机方便，linuxer必备。<br>2、码农，随时随地打开手机就可以工作。<br><a id="more"></a></p>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>一个字：虚拟机。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>0、<a href="https://github.com/meefik/busybox" target="_blank" rel="external">busybox</a><br>1、<a href="https://github.com/meefik/linuxdeploy" target="_blank" rel="external">linuxdeploy</a><br>2、<a href="https://github.com/jackpal/Android-Terminal-Emulator" target="_blank" rel="external">terminal</a></p>
+<p>这些都可以在github上找到，是开源的项目。请自觉到releases那里下载最新版本。<br>3、JuiceSSH （选装）<br>这个ssh链接工具，一个非常不错的终端。因为，它可以提供一个特殊字符的直接输入，这样在没有物理键盘的情况下非常好用。如果接个蓝牙键盘，那就是别当别论了。</p>
+<p>在安卓上运行linux，用到的是chroot。(这不就是docker上用到虚拟技术)看下项目READM.md的说明：</p>
+<blockquote>
+<p>Applications of the new system are run in a chroot environment and working together with the Android platform.</p>
+</blockquote>
+<p>运行在chroot环境，和安卓一起工作的。linuxdeploy运行起来后top一下就可以看到安卓的进程了。<br>机器要先root，并且先安装busybox，才可以安装linuxdeploy。安装过程就不说了，有问题可以到github上的Issuues上面找找。如果安装这三个软件也成问题，那你就不会看到这渣文。</p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>linuxdepoy是用联网进行安装linux，所以，网速很让人抓狂。可以将源设置成科大的，速度相当不错。修改镜像的地址：<a href="http://202.141.160.110/kali/" target="_blank" rel="external">http://202.141.160.110/kali/</a><br><img src="/images/如何用安卓手机做开发_1.jpg" class="class" width="240" title="Mirror URL"><br>其他的参数自己看办。<br>后期我会将自己的img上传到百度分享出来，因为联网安装失败可能性大。下载img文件，然后替换掉原来的img就可以启动。这样直接安装好kali常用的软件，方便大家使用。</p>
+<h1 id="如何在终端行里启动"><a href="#如何在终端行里启动" class="headerlink" title="如何在终端行里启动"></a>如何在终端行里启动</h1><p>为了解决三星手机无法在ssh下用root用户登录，没有root就无法apt-get，但，可以直接在终端里直接用root权限运行linuxdeploy。<br>0、打开命令行<br>1、su 获取root权限<br>2、转到linuxdeploy的bin目录下<br>3、启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su</span><br><span class="line"><span class="built_in">cd</span> /data/data/ru.meefik.linuxdeploy/files/bin</span><br><span class="line">./linuxdeploy shell</span><br></pre></td></tr></table></figure></p>
+<img src="/images/如何用安卓手机做开发_2.jpg" class="class" width="240" title="Mirror URL">
+<p>现在，手上有了自己的Kali，随便折腾吧！<br><img src="/images/如何用安卓手机做开发_3.jpg" class="class" width="240" title="Mirror URL"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag">#linux</a>
+          
+            <a href="/tags/kali/" rel="tag">#kali</a>
+          
+            <a href="/tags/ide/" rel="tag">#ide</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/git/git-分支替换/" rel="next" title="git 分支替换">
+                <i class="fa fa-chevron-left"></i> git 分支替换
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/vim/vim插件编写/" rel="prev" title="vim插件编写">
+                vim插件编写 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="linux/如何用安卓运行Kali/"
+           data-title="如何用安卓运行Kali" data-url="http://xuanjian.site/linux/如何用安卓运行Kali/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/tb1.png"
+               alt="xuanjian" />
+          <p class="site-author-name" itemprop="name">xuanjian</p>
+          <p class="site-description motion-element" itemprop="description">为什么学书法要临摹古代书法作品，因为Spring框架不是每个程序员都要写得出来，但，经典就要临摹学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xuanj" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://cn.linkedin.com/in/剑-禤-b85823120" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/xuanjian_" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/jian.xuan.7547" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么想用在手机上运行linux。"><span class="nav-number">1.</span> <span class="nav-text">为什么想用在手机上运行linux。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原理"><span class="nav-number">2.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何在终端行里启动"><span class="nav-number">5.</span> <span class="nav-text">如何在终端行里启动</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xuanjian</span>
+</div>
+
+<div class="powered-by">
+  Power By  <a class="theme-link" href="http://hexo.io">Hexo</a> 
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xuanjian"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
